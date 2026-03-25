@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .work-section {
+            padding: 100px 8%;
+            min-height: 100vh;
+        }
+
+        .work-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .work-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .work-header h1 span {
+            color: var(--accent);
+        }
+
+        .work-header p {
+            color: var(--text-gray);
+            font-size: 18px;
+        }
+
+        .work-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-white);
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--accent);
+            color: var(--bg-dark);
+            border-color: var(--accent);
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .work-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .work-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(111, 255, 233, 0.1);
+        }
+
+        .work-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1c2541 0%, rgba(111, 255, 233, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-image i {
+            font-size: 80px;
+            color: var(--accent);
+        }
+
+        .work-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(111, 255, 233, 0.1);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .work-card:hover .work-image::after {
+            opacity: 1;
+        }
+
+        .work-content {
+            padding: 30px;
+        }
+
+        .work-category {
+            display: inline-block;
+            background: rgba(111, 255, 233, 0.1);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .work-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .work-content p {
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .work-tech {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent);
+            padding: 5px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .work-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .work-link {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: rgba(111, 255, 233, 0.1);
+            color: var(--accent);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .work-link:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        @media (max-width: 768px) {
+            .work-section {
+                padding: 60px 8%;
+            }
+
+            .work-header h1 {
+                font-size: 36px;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-filters {
+                gap: 10px;
+            }
+
+            .filter-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Portfolio</div>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="work.html" class="active">Work</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main class="work-section">
+        <div class="work-header">
+            <h1>Mening <span>Loyihalarim</span></h1>
+            <p>Sifatli va innovativ veb-loyihalar</p>
+        </div>
+
+        <div class="work-filters">
+            <button class="filter-btn active" onclick="filterWork('all')">Barchasi</button>
+            <button class="filter-btn" onclick="filterWork('web')">Web Design</button>
+            <button class="filter-btn" onclick="filterWork('mobile')">Mobile App</button>
+            <button class="filter-btn" onclick="filterWork('branding')">Branding</button>
+        </div>
+
+        <div class="work-grid">
+            <!-- Web Design 1 -->
+            <div class="work-card" data-category="web">
+                <div class="work-image">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="work-content">
+                    <span class="work-category">Web Design</span>
+                    <h3>E-Commerce Website</h3>
+                    <p>Zargarlik mahsulotlarini sotuvchi online do'kon saytini dizayni va implementatsiyasi.</p>
+                    <div class="work-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="work-links">
+                        <a href="#" class="work-link">Demo</a>
+                        <a href="#" class="work-link">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Design 2 -->
+            <div class="work-card" data-category="web">
+                <div class="work-image">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="work-content">
+                    <span class="work-category">Web Design</span>
+                    <h3>Restaurant Website</h3>
+                    <p>Restoran uchun zamonavoy, responsive va qoniqarli sayt dizayni.</p>
+                    <div class="work-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Bootstrap</span>
+                    </div>
+                    <div class="work-links">
+                        <a href="#" class="work-link">Demo</a>
+                        <a href="#" class="work-link">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile App 1 -->
+            <div class="work-card" data-category="mobile">
+                <div class="work-image">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="work-content">
+                    <span class="work-category">Mobile App</span>
+                    <h3>Todo List App</h3>
+                    <p>Task management uchun efficient va foydalanuvchi-friendly mobile ilova.</p>
+                    <div class="work-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Material UI</span>
+                    </div>
+                    <div class="work-links">
+                        <a href="#" class="work-link">Demo</a>
+                        <a href="#" class="work-link">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Branding 1 -->
+            <div class="work-card" data-category="branding">
+                <div class="work-image">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="work-content">
+                    <span class="work-category">Branding</span>
+                    <h3>Brand Identity Design</h3>
+                    <p>Startup uchun complete brand identity - logo, color palette, typography.</p>
+                    <div class="work-tech">
+                        <span class="tech-tag">Logo</span>
+                        <span class="tech-tag">Design</span>
+                        <span class="tech-tag">Typography</span>
+                    </div>
+                    <div class="work-links">
+                        <a href="#" class="work-link">Demo</a>
+                        <a href="#" class="work-link">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Web Design 3 -->
+            <div class="work-card" data-category="web">
+                <div class="work-image">
+                    <i class="fas fa-laptop"></i>
+                </div>
+                <div class="work-content">
+                    <span class="work-category">Web Design</span>
+                    <h3>Portfolio Website</h3>
+                    <p>Professional portfolio sayt - responsive, modern va SEO o'ptimallangan.</p>
+                    <div class="work-tech">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">SEO</span>
+                    </div>
+                    <div class="work-links">
+                        <a href="#" class="work-link">Demo</a>
+                        <a href="#" class="work-link">Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile App 2 -->
+            <div class="work-card" data-category="mobile">
+                <div class="work-image">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="work-content">
+                    <span class="work-category">Mobile App</span>
+                    <h3>Chat Application</h3>
+                    <p>Real-time messaging - WebSocket texnologiyasi bilan qurilgan chat ilova.</p>
+                    <div class="work-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                    <div class="work-links">
+                        <a href="#" class="work-link">Demo</a>
+                        <a href="#" class="work-link">Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-about">
+                <div class="logo">Portfolio</div>
+                <p>Sifatli va zamonavoy veb-yechimlar yaratuvchi professional dasturchi.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Tezkor havolalar</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About me</a></li>
+                    <li><a href="work.html">Work</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Bog'lanish</h4>
+                <div class="social-icons">
+                    <a href="https://t.me/Nemat0va_f" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Feruza. Barcha huquqlar himoyalangan.
+        </div>
+    </footer>
+
+    <script>
+        function filterWork(category) {
+            // Filter buttons
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.work-card');
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = card.dataset.category === category ? 'block' : 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

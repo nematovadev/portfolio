@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yxatdan o'tish | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Login bilan bir xil stil */
+        .auth-body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0d1b2a;
+            font-family: sans-serif;
+        }
+
+        .auth-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .auth-card h2 {
+            color: #1b263b;
+            margin-bottom: 25px;
+        }
+
+        .input-box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            outline: none;
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 12px;
+            background: #4cc9f0;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .switch-text {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .switch-text a {
+            color: #4cc9f0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-card">
+        <h2>Ro'yxatdan o'tish</h2>
+        <form id="signupForm">
+            <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="To'liq ismingiz" required>
+            </div>
+            <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email manzilingiz" required>
+            </div>
+            <div class="input-box">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="p1" placeholder="Parol yarating" required>
+            </div>
+            <div class="input-box">
+                <i class="fas fa-check-double"></i>
+                <input type="password" id="p2" placeholder="Parolni tasdiqlang" required>
+            </div>
+            <button type="submit" class="btn-auth">Hisob yaratish</button>
+        </form>
+
+        <p class="switch-text">
+            Profilingiz bormi? <a href="login.html">Kirish</a>
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').onsubmit = function (e) {
+            e.preventDefault();
+            if (document.getElementById('p1').value !== document.getElementById('p2').value) {
+                alert("Parollar mos kelmadi!");
+            } else {
+                alert("Muvaffaqiyatli ro'yxatdan o'tdingiz!");
+                window.location.href = "login.html";
+            }
+        };
+    </script>
+</body>
+
+</html>

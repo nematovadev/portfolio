@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feruza | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b132b;
+            color: #ffffff;
+            font-family: 'Poppins', Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(11, 19, 43, 0.95);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: #6fffe9;
+        }
+
+        .navbar {
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #6fffe9;
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #0b132b 100%);
+            padding: 40px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .hero h1 span {
+            color: #6fffe9;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #afb3b7;
+            margin-bottom: 30px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #6fffe9;
+            color: #0b132b;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(111, 255, 233, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #6fffe9;
+            padding: 15px 30px;
+            border: 2px solid #6fffe9;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(111, 255, 233, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .services {
+            padding: 100px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .service-title h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .service-title span {
+            color: #6fffe9;
+        }
+
+        .card {
+            background: #1c2541;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #6fffe9;
+        }
+
+        .card-icon {
+            font-size: 50px;
+            color: #6fffe9;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #afb3b7;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #070b18;
+            padding: 60px 40px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 100px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 15px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #afb3b7;
+            text-decoration: none;
+            line-height: 2;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #6fffe9;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            font-size: 24px;
+            margin-right: 20px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #6fffe9;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #afb3b7;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .navbar {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .hero {
+                height: auto;
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Portfolio</div>
+        <nav class="navbar">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="skills.html">Skills</a>
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div>
+                <h1>Salom, Men <span>Feruza</span></h1>
+                <p>Professional veb-dasturchi va UI/UX dizayner. Zamonavoy digital yechimlar yarataman.</p>
+                <div class="hero-btns">
+                    <a href="work.html" class="btn-primary">Mening Loyihalarim</a>
+                    <a href="contact.html" class="btn-secondary">Menga Yozing</a>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center;">
+            <div class="service-title">
+                <h2>Men Qanday Xizmatlar <span>Taqdim Etaman</span></h2>
+                <p style="color: #afb3b7;">Zamonaviy veb qurish dan UI/UX dizaynga qadar</p>
+            </div>
+            <div class="services">
+                <div class="card">
+                    <div class="card-icon">💻</div>
+                    <h3>Web Development</h3>
+                    <p>HTML5, CSS3, JavaScript va React bilan responsive saytlar yarataman.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Foydalanuvchi-centric va zamonavoy interfeys dizayni.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔍</div>
+                    <h3>SEO Optimizatsiya</h3>
+                    <p>Saytingiz qidiruv tizimlarida yuqori o'rinni olishi uchun optimallashtirish.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📱</div>
+                    <h3>Responsive Design</h3>
+                    <p>Barcha jihazlar uchun muhim dizayn.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Texnik Qo'llab-Quvvatlash</h3>
+                    <p>Saytingizni ishchi holatda saqlash va yangilashlarni qo'llab-quvvatlayman.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Performance Tahlil</h3>
+                    <p>Saytning sur'ati va ishlashini tahlil qilib yaxshilaman.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="logo">Portfolio</div>
+                <p style="margin-top: 10px; color: #afb3b7;">Sifatli va zamonavoy veb-yechimlar yaratuvchi professional
+                    dasturchi.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Tezkor Havolalar</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About me</a></li>
+                    <li><a href="work.html">Work</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Bog'lanish</h4>
+                <div class="social-icons">
+                    <a href="https://t.me/Nemat0va_f" target="_blank">📱</a>
+                    <a href="#">📷</a>
+                    <a href="#">💻</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Feruza. Barcha huquqlar himoyalangan.
+        </div>
+    </footer>
+
+    <script>
+        console.log('✅ Portfolio loaded successfully!');
+    </script>
+</body>
+
+</html>

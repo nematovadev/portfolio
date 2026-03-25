@@ -1,0 +1,25 @@
+{
+    "name": "feruza-portfolio",
+    "version": "1.0.0",
+    "description": "Professional Portfolio Website - Built with HTML, CSS, React and JavaScript",
+    "main": "index.html",
+    "scripts": {
+        "start": "open index.html",
+        "dev": "http-server -p 8000",
+        "build": "echo 'Static site - no build needed'"
+    },
+    "keywords": [
+        "portfolio",
+        "react",
+        "javascript",
+        "web-development",
+        "ui-ux",
+        "responsive"
+    ],
+    "author": "Feruza",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yourusername/feruza-portfolio.git"
+    }
+}
